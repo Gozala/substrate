@@ -1,4 +1,4 @@
-# substrate languge
+# substrate language
 
 Substrate is an idea of the programming language which is a lisp dialect inspired by [scheme], [clojure] with static types and inference inspired by [elm].
 
@@ -20,11 +20,12 @@ If you want to pass multiple arguments you have to use record of named attribute
 (-> {first last} "hello "first" "last"!")
 ```
 
-In fact the anonymous parametered function is simply a sugar for the folowing
+In fact function with anonymous parameter is a sugar for the following
 
 ```clojure
 (-> {: name} "hello "name"!")
 ```
+
 ## Protocols
 
 Language adopts idea of a [namespace from clojure] coupled with [module from racket] as a way to declare definitions for in some context
@@ -54,7 +55,7 @@ This affects data representation, which is convenient in cases where different p
   :pair {:head item :tail (List item)))
 ```
 
-Which is syntatic sugar for
+Which is syntactic sugar for
 
 ```clojure
 (type (List {: item})
@@ -73,7 +74,7 @@ Which is syntatic sugar for
 (record Line :start Point :end Point)
 ```
 
-Which is syntatic sugar for a variant type
+Which is syntactic sugar for a variant type
 
 ```clojure
 (define Point {
@@ -138,10 +139,10 @@ Variants represent an attribute out of the set of attributes
     :visible))
 ```
 
-Variants can also carry payloads 
+Variants can also carry payloads
 
 ```clojure
-(define Event 
+(define Event
   (variant
     :PageLoad
     :PageUnload
@@ -157,7 +158,7 @@ Variants can also carry payloads
   :left (Tree data)
   :right (Tree data))
 
-  
+
 (variant data
   :leaf data
   :node (Node data))
@@ -169,10 +170,7 @@ Variants can also carry payloads
     :error error))
 ```
 
-
-
 ### Data Types
-
 
 #### Bits
 
@@ -226,9 +224,9 @@ You can combine text using interpolation syntax, which is similar to [JS templat
 (define greeting "Hello"name"!")
 ```
 
-> ℹ️ When text fragments have no spaces between them they are interpreted as concatination
+> ℹ️ When text fragments have no spaces between them they are interpreted as concatenation
 
-You can use interpolation syntax to concatinate two text bindings as well by joining them with empty string literal `""`
+You can use interpolation syntax to concatenate two text bindings as well by joining them with empty string literal `""`
 
 ```clojure
 (define greet "Hello")
@@ -253,12 +251,11 @@ Is type who's value can not exist. You could not create a value for the variant 
 (define Never)
 ```
 
-> In scientific litrature it is often referred to as [bottom type]
+> In scientific literature it is often referred to as [bottom type]
 
 # 🚧 Would be nice to use `[]` in arrays
 
-
-## Examples 
+## Examples
 
 ```clojure
 (let [record {:x 1 :y 2}] record)
@@ -277,11 +274,11 @@ Is type who's value can not exist. You could not create a value for the variant 
 (define inc (=> n (+ n 1)))
 ```
 
-[scheme]:https://en.wikipedia.org/wiki/Scheme_(programming_language)
-[clojure]:https://clojure.org/
-[elm]:https://elm-lang.org/
-[namespace from clojure]:https://clojure.org/reference/namespaces
-[module from racket]:https://beautifulracket.com/explainer/modules.html
-[JS template literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[bottom type]:https://en.wikipedia.org/wiki/Bottom_type
-[unit type]:https://en.wikipedia.org/wiki/Unit_type
+[scheme]: https://en.wikipedia.org/wiki/Scheme_(programming_language)
+[clojure]: https://clojure.org/
+[elm]: https://elm-lang.org/
+[namespace from clojure]: https://clojure.org/reference/namespaces
+[module from racket]: https://beautifulracket.com/explainer/modules.html
+[js template literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+[bottom type]: https://en.wikipedia.org/wiki/Bottom_type
+[unit type]: https://en.wikipedia.org/wiki/Unit_type
